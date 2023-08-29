@@ -1,18 +1,13 @@
-export default function Cabecalho() {
+export default function Header(props) {
   return (
     <>
       <header>
         <h1>Vite + React - Coded by rm552008</h1>
         <ul>
-          <li>
-            <a href="#">Item - 1</a>
-          </li>
-          <li>
-            <a href="#">Item - 2</a>
-          </li>
-          <li>
-            <a href="#">Item - 3</a>
-          </li>
+          {props.children.map((item, index) => {
+              return item
+          })
+        }
         </ul>
       </header>
     </>

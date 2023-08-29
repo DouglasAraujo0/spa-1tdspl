@@ -9,13 +9,15 @@ export default function App() {
 
   let viteAlt = "Vite Logo";
 
+  let nomes = ["douglas", "dada", "dadazao"];
+
   return (
     <>
       {/* {Área imperativa} */}
 
       <Header />
 
-      <Section viteLogoProps={viteLogo} viteAltProps={viteAlt}/>
+      <Section viteLogoProps={viteLogo} viteAltProps={viteAlt} nomesProps = {nomes}/>
 
       <Footer />
 
