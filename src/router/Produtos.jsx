@@ -1,5 +1,5 @@
-export default function Produto() {
+export default function Produtos() {
     return (
-        <div></div>
+        <div>Produtos</div>
     )
 }

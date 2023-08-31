@@ -1,5 +1,5 @@
 export default function EditarProduto() {
     return (
-        <div></div>
+        <div>EditarProduto</div>
     )
 }

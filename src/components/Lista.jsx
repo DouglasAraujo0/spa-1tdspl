@@ -6,13 +6,13 @@ export default function lista() {
         <>
             <Header>
                 <li>
-                    <a href="#">Item - 1</a>
+                    <a href=""><Link to={"/"}>Home</Link></a>
                 </li>
                 <li>
-                    <a href="#">Item - 2</a>
+                    <a href="#">Produtos</a>
                 </li>
                 <li>
-                    <a href="#">Item - 3</a>
+                    <a href="#">Editar Produtos</a>
                 </li>
             </Header>
         </>
