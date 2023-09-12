@@ -1,5 +1,6 @@
 import { ListaProdutos } from "../components/ListaProdutos"
 import { Link } from "react-router-dom"
+import classes from "./Produtos.module.css"
 
 export default function Produtos() {
     return (
@@ -7,28 +8,26 @@ export default function Produtos() {
             <h1>Produtos de Informática - FIPAPI</h1>
             <p>Os Melhores Produtos do Mercado </p>
 
-            <table style={{borderCollapse: "collapse", border: "2px solid #ffffff"}}>
+            <table className={classes.estiloTabela}>
                 <thead>
                     <tr>
-                        <th style={{border: "2px solid #ffffff"}}>ID</th>
-                        <th style={{border: "2px solid #ffffff"}}>NOME</th>
-                        <th style={{border: "2px solid #ffffff"}}>DESCRIÇÃO</th>
-                        <th style={{border: "2px solid #ffffff"}}>PREÇO</th>
-                        <th style={{border: "2px solid #ffffff"}}>EDITAR</th>
+                        <th className ={classes.tableHeaders}>ID</th>
+                        <th className ={classes.tableHeaders}>NOME</th>
+                        <th className ={classes.tableHeaders}>DESCRIÇÃO</th>
+                        <th className ={classes.tableHeaders}>PREÇO</th>
+                        <th className ={classes.tableHeaders}>EDITAR</th>
                     </tr>
                 </thead>
 
                 <tbody>
                     {ListaProdutos.map((produto, indice) =>(
-                        
-                        <tr key={indice}>
-                            <td style={{border: "2px solid #ffffff"}}>{produto.id}</td>
-                            <td style={{border: "2px solid #ffffff"}}>{produto.nome}</td>
-                            <td style={{border: "2px solid #ffffff"}}>{produto.desc}</td>
-                            <td style={{border: "2px solid #ffffff"}}>{produto.preco}</td>
-                            <td style={{border: "2px solid #ffffff"}}><Link to={`/editar/produtos/${produto.id}`}>Editar</Link></td>
+                        <tr key={indice} className={classes.tableLine}>
+                            <td className ={classes.tableData}>{produto.id}</td>
+                            <td className ={classes.tableData}>{produto.nome}</td>
+                            <td className ={classes.tableData}>{produto.desc}</td>
+                            <td className ={classes.tableData}>{produto.preco}</td>
+                            <td className ={classes.tableData}><Link to={`/editar/produtos/${produto.id}`}>Editar</Link></td>
                         </tr>
-
                     ))}
                 </tbody>
 
