@@ -1,10 +1,16 @@
-import { useParams} from "react-router-dom";
+import { useNavigate, useParams} from "react-router-dom";
 import { ListaProdutos } from "../components/ListaProdutos";
 import { useState } from "react";
 
 export default function EditarProduto() {
 
     document.title = "EditarProdutos";
+
+    //Criando um mecanismo de navegação com useNavigate()
+
+    const navigate = useNavigate();
+
+
 
     //Receber o ID do produto pelo HOOk useParams();
     const {id} = useParams();
@@ -16,7 +22,8 @@ export default function EditarProduto() {
         id: produtoRecuperado[0].id,
         nome : produtoRecuperado[0].nome,
         desc: produtoRecuperado[0].desc,
-        preco: produtoRecuperado[0].preco
+        preco: produtoRecuperado[0].preco,
+        img: produtoRecuperado[0].img,
     });
 
     const handleChange = (event) => {
@@ -28,6 +35,20 @@ export default function EditarProduto() {
         setProduto({...produto, [name]:value});
     }   
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        let indice;
+        
+        indice = ListaProdutos.findIndex((item) => item.id === produto.id)
+
+        ListaProdutos.splice(indice, 1, produto)
+
+        alert("Produto alterado com sucesso!")
+
+        navigate("/produtos")
+    }
+
 
 
     return (
@@ -36,7 +57,7 @@ export default function EditarProduto() {
                 <h1>EditarProdutos</h1>
             </div>
             <div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <fieldset>
                         <legend>Produto a ser Editado</legend>
                         <div>
