@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './index.css'
 
-import { createBrowserRouter, Route, RouterProvider } from 'react-router-dom';
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import EditarProdutos from "./router/EditarProduto.jsx"
 import Erro404 from "./router/Erro404.jsx"
 import Home from "./router/Home.jsx"
