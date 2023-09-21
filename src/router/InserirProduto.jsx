@@ -7,10 +7,10 @@ export default function InserirProduto() {
     const navigate = useNavigate();
     
 
-    const [produtoId, setProdutoId] = useState(0);
-    let idProd = ListaProdutos[ListaProdutos.length - 1].id + 1
+    // const [produtoId, setProdutoId] = useState(0);
+    let idProd = parseInt(ListaProdutos[ListaProdutos.length - 1].id) + 1
     const [produto, setProduto] = useState({
-        id: 0,
+        id: idProd,
         nome: "",
         desc: "",
         preco: 0.0,
@@ -25,8 +25,9 @@ export default function InserirProduto() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let idProd = ListaProdutos[ListaProdutos.length - 1].id + 1
-        setProduto({...produto, ["id"]:idProd});
+        // setProdutoId(idProd);
+        // const{id} = produto;
+        // setProduto({...produto, [id]:produtoId});
 
         ListaProdutos.push(produto);
 

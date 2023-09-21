@@ -7,8 +7,7 @@ import { useEffect, useState } from "react"
 
 export default function Produtos() {
 
-    const [counter, setCounter] = useState(0);
-    document.title = "Lista de Produtos " + counter;
+    document.title = "Lista de Produtos: ";
 
     useEffect(()=>{
         console.log("Este useEffect renderiza sempre que ocorre alguma atualização no componente!")
