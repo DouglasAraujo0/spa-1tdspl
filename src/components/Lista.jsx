@@ -12,6 +12,9 @@ export default function lista() {
                 <li>
                     <Link to={"/produtos"}>Produtos</Link>
                 </li>
+                <li>
+                <Link to={"/cadastrar"}>Cadastrar Produtos</Link>
+                </li>
             </Header>
         </>
     );
