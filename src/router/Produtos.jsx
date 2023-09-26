@@ -1,4 +1,4 @@
-import { ListaProdutos } from "../components/ListaProdutos"
+//import { ListaProdutos } from "../components/ListaProdutos"
 import { Link } from "react-router-dom"
 import classes from "./Produtos.module.css"
 import {AiFillEdit as Editar} from "react-icons/ai"
@@ -6,11 +6,24 @@ import {RiDeleteBin2Fill as Excluir} from "react-icons/ri"
 import { useEffect, useState } from "react"
 
 export default function Produtos() {
-
     document.title = "Lista de Produtos: ";
 
+    const [listaProdutoExterno, setListaProdutoExterno] = useState([{}])
 
+    useEffect(() => {
 
+    fetch("http://localhost:5000/produtos",{
+        method: "GET",
+        headers: {
+            "Content-Type":"application/json"
+        }
+    })
+    .then((response) => response.json())
+    .then((data) => (
+        setListaProdutoExterno(data)
+    ))
+    .catch(error => console.log(error))
+}, [])
     
 
     return (
@@ -33,7 +46,7 @@ export default function Produtos() {
                 </thead>
 
                 <tbody>
-                    {ListaProdutos.map((produto, indice) =>(
+                    {listaProdutoExterno.map((produto, indice) =>(
                         <tr key={indice} className={classes.tableLine}>
                             <td>{produto.id}</td>
                             <td>{produto.nome}</td>
