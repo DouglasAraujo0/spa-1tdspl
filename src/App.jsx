@@ -1,25 +1,19 @@
-import Header from "./components/Header";
-import Section from "./components/Section";
+import Lista from "./components/Lista";
 import Footer from "./components/Footer";
-import viteLogo from "./assets/vite.svg"
+import { Outlet } from "react-router-dom";
 
 export default function App() {
-  //Área declarativa
-  //let nome = "João";
-
-  let viteAlt = "Vite Logo";
 
   return (
     <>
       {/* {Área imperativa} */}
 
-      <Header />
+      <Lista/>
 
-      <Section viteLogoProps={viteLogo} viteAltProps={viteAlt}/>
+      <Outlet/>
 
       <Footer />
 
-      
     </>
   );
 }
