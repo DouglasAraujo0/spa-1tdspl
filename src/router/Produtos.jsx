@@ -9,24 +9,21 @@ export default function Produtos() {
     document.title = "Lista de Produtos: ";
 
     const [listaProdutoExterno, setListaProdutoExterno] = useState([{}])
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
-
+    if(!open) {
     fetch("http://localhost:5000/produtos",{
         method: "GET",
         headers: {
             "Content-Type":"application/json"
-        }
+        },
     })
     .then((response) => response.json())
-    .then((data) => (
-        setListaProdutoExterno(data)
-    ))
+    .then((data) => (setListaProdutoExterno(data)))
     .catch(error => console.log(error))
-}, [])
-    
-    const [open, setOpen] = useState(false);
-
+    }   
+}, [open])
 
     return (
         <div>
