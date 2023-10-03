@@ -11,7 +11,7 @@ export default function Produtos() {
     const [listaProdutoExterno, setListaProdutoExterno] = useState([{}])
     const [open, setOpen] = useState(false);
 
-    useEffect(() => {
+   useEffect(() => {
     if(!open) {
     fetch("http://localhost:5000/produtos",{
         method: "GET",
@@ -23,7 +23,7 @@ export default function Produtos() {
     .then((data) => (setListaProdutoExterno(data)))
     .catch(error => console.log(error))
     }   
-}, [open])
+}, [open]);
 
     return (
         <div>
